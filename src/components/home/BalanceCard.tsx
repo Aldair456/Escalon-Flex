@@ -44,7 +44,7 @@ const styles = StyleSheet.create({
   label: {
     color: colors.primary,
     fontSize: 15,
-    fontWeight: '600',
+    fontWeight: '700',
   },
   amount: {
     color: '#111827',

@@ -10,9 +10,9 @@ export function QuickActionsGrid() {
         <QuickActionItem
           key={action.id}
           label={action.label}
-          icon={action.icon}
-          color={action.color}
+          image={action.image}
           route={action.route}
+          badge={action.badge}
         />
       ))}
     </View>

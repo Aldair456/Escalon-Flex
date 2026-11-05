@@ -7,4 +7,5 @@ export const colors = {
   textMuted: '#6B7280',
   border: '#E5E7EB',
   dot: '#D1D5DB',
+  background: '#F4F4F6',
 };

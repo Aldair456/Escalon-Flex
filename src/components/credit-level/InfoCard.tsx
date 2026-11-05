@@ -1,18 +1,19 @@
+import { Ionicons } from '@expo/vector-icons';
 import { StyleSheet, Text, View } from 'react-native';
 
 import { colors } from '@/theme/colors';
 
-type StepItemProps = {
-  number: number;
+type InfoCardProps = {
+  icon: keyof typeof Ionicons.glyphMap;
   title: string;
   description: string;
 };
 
-export function StepItem({ number, title, description }: StepItemProps) {
+export function InfoCard({ icon, title, description }: InfoCardProps) {
   return (
     <View style={styles.container}>
-      <View style={styles.badge}>
-        <Text style={styles.badgeText}>{number}</Text>
+      <View style={styles.iconBox}>
+        <Ionicons name={icon} size={20} color={colors.white} />
       </View>
 
       <View style={styles.content}>
@@ -28,23 +29,18 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     gap: 14,
-    backgroundColor: '#F3EEFA',
+    borderWidth: 1,
+    borderColor: colors.border,
     borderRadius: 16,
-    padding: 16,
-    marginBottom: 14,
+    padding: 14,
   },
-  badge: {
-    width: 32,
-    height: 32,
-    borderRadius: 16,
-    backgroundColor: colors.primary,
+  iconBox: {
+    width: 44,
+    height: 44,
+    borderRadius: 12,
+    backgroundColor: colors.accent,
     alignItems: 'center',
     justifyContent: 'center',
-  },
-  badgeText: {
-    color: colors.white,
-    fontWeight: '700',
-    fontSize: 15,
   },
   content: {
     flex: 1,

@@ -1,31 +1,10 @@
-import { ScrollView, StyleSheet, Text, View } from 'react-native';
+import { ScrollView, StyleSheet, View } from 'react-native';
 
 import { colors } from '@/theme/colors';
 
-type Promo = {
-  id: string;
-  badge: string;
-  title: string;
-  description: string;
-  background: string;
-};
-
-const promos: Promo[] = [
-  {
-    id: 'gas',
-    badge: 'Pedir Gas',
-    title: 'YAPEGAS',
-    description: '¡Usa el cupón y ahorra S/ 5!',
-    background: '#8B2FC9',
-  },
-  {
-    id: 'cyber',
-    badge: 'Cyber Yape',
-    title: 'iPhone 15 128GB',
-    description: 'Pagando con Crédito BCP',
-    background: '#1F2937',
-  },
-];
+import { BannerPromoCard } from './BannerPromoCard';
+import { FeaturePromoCard } from './FeaturePromoCard';
+import { promos } from './promos.data';
 
 export function PromoCarousel() {
   return (
@@ -34,15 +13,25 @@ export function PromoCarousel() {
         horizontal
         showsHorizontalScrollIndicator={false}
         contentContainerStyle={styles.scrollContent}>
-        {promos.map((promo) => (
-          <View key={promo.id} style={[styles.card, { backgroundColor: promo.background }]}>
-            <View style={styles.badge}>
-              <Text style={styles.badgeText}>{promo.badge}</Text>
-            </View>
-            <Text style={styles.title}>{promo.title}</Text>
-            <Text style={styles.description}>{promo.description}</Text>
-          </View>
-        ))}
+        {promos.map((promo) =>
+          promo.variant === 'feature' ? (
+            <FeaturePromoCard
+              key={promo.id}
+              badge={promo.badge}
+              eyebrow={promo.eyebrow}
+              heading={promo.heading}
+              disclaimer={promo.disclaimer}
+            />
+          ) : (
+            <BannerPromoCard
+              key={promo.id}
+              badge={promo.badge}
+              title={promo.title}
+              description={promo.description}
+              background={promo.background}
+            />
+          ),
+        )}
       </ScrollView>
 
       <View style={styles.dots}>
@@ -61,37 +50,6 @@ const styles = StyleSheet.create({
   scrollContent: {
     paddingHorizontal: 16,
     gap: 12,
-  },
-  card: {
-    width: 220,
-    height: 120,
-    borderRadius: 16,
-    padding: 14,
-    justifyContent: 'flex-end',
-  },
-  badge: {
-    position: 'absolute',
-    top: 10,
-    left: 10,
-    backgroundColor: colors.white,
-    borderRadius: 10,
-    paddingHorizontal: 8,
-    paddingVertical: 2,
-  },
-  badgeText: {
-    fontSize: 11,
-    fontWeight: '700',
-    color: colors.primaryDark,
-  },
-  title: {
-    color: colors.white,
-    fontSize: 18,
-    fontWeight: '800',
-  },
-  description: {
-    color: colors.white,
-    fontSize: 12,
-    marginTop: 2,
   },
   dots: {
     flexDirection: 'row',

@@ -1,25 +1,31 @@
-import { Ionicons } from '@expo/vector-icons';
 import { router, type Href } from 'expo-router';
-import { Pressable, StyleSheet, Text, View } from 'react-native';
+import { Image, type ImageSourcePropType, Pressable, StyleSheet, Text, View } from 'react-native';
 
 import { colors } from '@/theme/colors';
 
 type QuickActionItemProps = {
   label: string;
-  icon: keyof typeof Ionicons.glyphMap;
-  color: string;
+  image: ImageSourcePropType;
   route?: string;
+  badge?: string;
 };
 
-export function QuickActionItem({ label, icon, color, route }: QuickActionItemProps) {
+export function QuickActionItem({ label, image, route, badge }: QuickActionItemProps) {
   return (
     <Pressable
       style={styles.container}
       disabled={!route}
       onPress={() => route && router.push(route as Href)}>
       <View style={styles.iconWrapper}>
-        <Ionicons name={icon} size={26} color={color} />
+        <Image source={image} style={styles.icon} resizeMode="cover" />
+
+        {badge && (
+          <View style={styles.badge}>
+            <Text style={styles.badgeText}>{badge}</Text>
+          </View>
+        )}
       </View>
+
       <Text style={styles.label} numberOfLines={2}>
         {label}
       </Text>
@@ -37,11 +43,28 @@ const styles = StyleSheet.create({
   iconWrapper: {
     width: 56,
     height: 56,
-    borderRadius: 28,
+    borderRadius: 16,
     backgroundColor: colors.white,
-    alignItems: 'center',
-    justifyContent: 'center',
+    overflow: 'hidden',
     marginBottom: 6,
+  },
+  icon: {
+    width: '100%',
+    height: '100%',
+  },
+  badge: {
+    position: 'absolute',
+    top: -6,
+    right: -10,
+    backgroundColor: colors.badge,
+    borderRadius: 8,
+    paddingHorizontal: 6,
+    paddingVertical: 2,
+  },
+  badgeText: {
+    color: colors.primaryDark,
+    fontSize: 9,
+    fontWeight: '800',
   },
   label: {
     color: colors.white,
