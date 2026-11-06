@@ -4,6 +4,7 @@ export const colors = {
   accent: '#1BA39C',
   badge: '#F2C94C',
   white: '#FFFFFF',
+  text: '#111827',
   textMuted: '#6B7280',
   border: '#E5E7EB',
   dot: '#D1D5DB',

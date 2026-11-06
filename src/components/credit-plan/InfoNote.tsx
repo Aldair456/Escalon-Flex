@@ -2,6 +2,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { StyleSheet, Text, View } from 'react-native';
 
 import { colors } from '@/theme/colors';
+import { radii } from '@/theme/radii';
 
 type InfoNoteProps = {
   lead: string;
@@ -28,7 +29,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     gap: 10,
     backgroundColor: '#F3EEFA',
-    borderRadius: 16,
+    borderRadius: radii.card,
     padding: 16,
     marginTop: 16,
   },
@@ -36,7 +37,7 @@ const styles = StyleSheet.create({
     width: 22,
     height: 22,
     borderRadius: 11,
-    backgroundColor: '#111827',
+    backgroundColor: colors.text,
     alignItems: 'center',
     justifyContent: 'center',
     marginTop: 2,
@@ -44,7 +45,7 @@ const styles = StyleSheet.create({
   text: {
     flex: 1,
     fontSize: 13,
-    color: '#111827',
+    color: colors.text,
     lineHeight: 19,
   },
   lead: {

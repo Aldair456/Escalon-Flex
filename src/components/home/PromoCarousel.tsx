@@ -4,6 +4,7 @@ import { colors } from '@/theme/colors';
 
 import { BannerPromoCard } from './BannerPromoCard';
 import { FeaturePromoCard } from './FeaturePromoCard';
+import { ImagePromoCard } from './ImagePromoCard';
 import { promos } from './promos.data';
 
 export function PromoCarousel() {
@@ -13,16 +14,24 @@ export function PromoCarousel() {
         horizontal
         showsHorizontalScrollIndicator={false}
         contentContainerStyle={styles.scrollContent}>
-        {promos.map((promo) =>
-          promo.variant === 'feature' ? (
-            <FeaturePromoCard
-              key={promo.id}
-              badge={promo.badge}
-              eyebrow={promo.eyebrow}
-              heading={promo.heading}
-              disclaimer={promo.disclaimer}
-            />
-          ) : (
+        {promos.map((promo) => {
+          if (promo.variant === 'feature') {
+            return (
+              <FeaturePromoCard
+                key={promo.id}
+                badge={promo.badge}
+                eyebrow={promo.eyebrow}
+                heading={promo.heading}
+                disclaimer={promo.disclaimer}
+              />
+            );
+          }
+
+          if (promo.variant === 'image') {
+            return <ImagePromoCard key={promo.id} image={promo.image} />;
+          }
+
+          return (
             <BannerPromoCard
               key={promo.id}
               badge={promo.badge}
@@ -30,8 +39,8 @@ export function PromoCarousel() {
               description={promo.description}
               background={promo.background}
             />
-          ),
-        )}
+          );
+        })}
       </ScrollView>
 
       <View style={styles.dots}>

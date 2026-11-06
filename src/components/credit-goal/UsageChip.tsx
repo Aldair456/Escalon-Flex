@@ -1,6 +1,7 @@
 import { Pressable, StyleSheet, Text } from 'react-native';
 
 import { colors } from '@/theme/colors';
+import { shadows } from '@/theme/shadows';
 
 type UsageChipProps = {
   label: string;
@@ -18,14 +19,17 @@ export function UsageChip({ label, selected, onPress }: UsageChipProps) {
 
 const styles = StyleSheet.create({
   chip: {
+    backgroundColor: colors.white,
     borderWidth: 1.5,
     borderColor: colors.primary,
     borderRadius: 20,
     paddingHorizontal: 16,
-    paddingVertical: 8,
+    paddingVertical: 9,
+    ...shadows.card,
   },
   chipSelected: {
     backgroundColor: colors.primary,
+    shadowOpacity: 0.12,
   },
   label: {
     fontSize: 13,

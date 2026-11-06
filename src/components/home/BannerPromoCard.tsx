@@ -1,6 +1,7 @@
 import { StyleSheet, Text, View } from 'react-native';
 
 import { colors } from '@/theme/colors';
+import { radii } from '@/theme/radii';
 
 type BannerPromoCardProps = {
   badge: string;
@@ -23,9 +24,9 @@ export function BannerPromoCard({ badge, title, description, background }: Banne
 
 const styles = StyleSheet.create({
   card: {
-    width: 220,
-    height: 120,
-    borderRadius: 16,
+    width: 300,
+    height: 160,
+    borderRadius: radii.card,
     padding: 14,
     justifyContent: 'flex-end',
   },

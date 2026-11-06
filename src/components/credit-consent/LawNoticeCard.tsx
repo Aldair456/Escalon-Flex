@@ -2,6 +2,7 @@ import { ReactNode } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
 import { colors } from '@/theme/colors';
+import { radii } from '@/theme/radii';
 
 type LawNoticeCardProps = {
   badge: string;
@@ -22,12 +23,12 @@ export function LawNoticeCard({ badge, children }: LawNoticeCardProps) {
 const styles = StyleSheet.create({
   container: {
     backgroundColor: '#F3EEFA',
-    borderRadius: 16,
+    borderRadius: radii.card,
     padding: 16,
   },
   badge: {
     alignSelf: 'flex-start',
-    backgroundColor: '#111827',
+    backgroundColor: colors.text,
     borderRadius: 8,
     paddingHorizontal: 10,
     paddingVertical: 4,
@@ -40,7 +41,7 @@ const styles = StyleSheet.create({
   },
   text: {
     fontSize: 14,
-    color: '#111827',
+    color: colors.text,
     lineHeight: 20,
   },
 });

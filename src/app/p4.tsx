@@ -8,6 +8,7 @@ import { planOptions, planSummary } from '@/components/credit-plan/plans.data';
 import { PlanOptionCard } from '@/components/credit-plan/PlanOptionCard';
 import { SummaryRow } from '@/components/credit-plan/SummaryRow';
 import { colors } from '@/theme/colors';
+import { layout } from '@/theme/layout';
 
 export default function P4() {
   const [selectedPlan, setSelectedPlan] = useState('p150');
@@ -54,13 +55,11 @@ const styles = StyleSheet.create({
   scroll: {
     flex: 1,
   },
-  content: {
-    padding: 20,
-  },
+  content: layout.screenContent,
   heading: {
     fontSize: 24,
     fontWeight: '800',
-    color: colors.primary,
+    color: colors.text,
   },
   subheading: {
     fontSize: 14,

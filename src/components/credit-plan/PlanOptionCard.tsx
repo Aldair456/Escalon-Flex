@@ -1,6 +1,7 @@
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 
 import { colors } from '@/theme/colors';
+import { radii } from '@/theme/radii';
 
 type PlanOptionCardProps = {
   amount: string;
@@ -34,7 +35,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     borderWidth: 1.5,
     borderColor: colors.border,
-    borderRadius: 16,
+    borderRadius: radii.card,
     padding: 16,
     marginBottom: 12,
   },
@@ -47,12 +48,12 @@ const styles = StyleSheet.create({
   amount: {
     fontSize: 18,
     fontWeight: '800',
-    color: '#111827',
+    color: colors.text,
   },
   amountSuffix: {
     fontSize: 14,
     fontWeight: '600',
-    color: '#111827',
+    color: colors.text,
   },
   note: {
     fontSize: 13,
