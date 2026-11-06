@@ -7,6 +7,8 @@ import { ToggleRow } from '@/components/credit-consent/ToggleRow';
 import { dataUsageItems, visibilityItems } from '@/components/credit-consent/consent.data';
 import { ContinueButton } from '@/components/credit-goal/ContinueButton';
 import { colors } from '@/theme/colors';
+import { layout } from '@/theme/layout';
+import { radii } from '@/theme/radii';
 
 export default function P2() {
   const [dataUsage, setDataUsage] = useState<Record<string, boolean>>(
@@ -69,9 +71,7 @@ const styles = StyleSheet.create({
   scroll: {
     flex: 1,
   },
-  content: {
-    padding: 20,
-  },
+  content: layout.screenContent,
   bold: {
     fontWeight: '800',
   },
@@ -84,7 +84,7 @@ const styles = StyleSheet.create({
   },
   card: {
     backgroundColor: colors.white,
-    borderRadius: 16,
+    borderRadius: radii.card,
     borderWidth: 1,
     borderColor: colors.border,
     paddingHorizontal: 16,

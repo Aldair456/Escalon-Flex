@@ -2,6 +2,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 
 import { colors } from '@/theme/colors';
+import { radii } from '@/theme/radii';
 
 type BalanceCardProps = {
   visible: boolean;
@@ -32,7 +33,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 16,
     paddingVertical: 16,
     backgroundColor: colors.white,
-    borderRadius: 16,
+    borderRadius: radii.card,
     borderWidth: 1,
     borderColor: colors.border,
   },
@@ -47,7 +48,7 @@ const styles = StyleSheet.create({
     fontWeight: '700',
   },
   amount: {
-    color: '#111827',
+    color: colors.text,
     fontSize: 15,
     fontWeight: '700',
   },

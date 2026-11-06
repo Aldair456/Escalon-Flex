@@ -24,7 +24,7 @@ export function FeaturePromoCard({ badge, eyebrow, heading, disclaimer }: Featur
 
       <View style={styles.iconBox}>
         <Image
-          source={require('../../../assets/icons/quick-actions/construye-credito.png')}
+          source={require('../../../assets/illustrations/credit-steps.png')}
           style={styles.icon}
           resizeMode="contain"
         />
@@ -36,6 +36,7 @@ export function FeaturePromoCard({ badge, eyebrow, heading, disclaimer }: Featur
 const styles = StyleSheet.create({
   card: {
     width: 300,
+    height: 160,
     flexDirection: 'row',
     alignItems: 'center',
     backgroundColor: '#F8F2FC',
@@ -63,12 +64,12 @@ const styles = StyleSheet.create({
   },
   eyebrow: {
     fontSize: 14,
-    color: '#111827',
+    color: colors.text,
   },
   heading: {
     fontSize: 19,
     fontWeight: '800',
-    color: '#111827',
+    color: colors.text,
     marginTop: 2,
     lineHeight: 24,
     textTransform: 'uppercase',

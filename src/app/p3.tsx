@@ -4,8 +4,8 @@ import { BuildCreditHeader } from '@/components/credit-goal/BuildCreditHeader';
 import { ContinueButton } from '@/components/credit-goal/ContinueButton';
 import { InfoCard } from '@/components/credit-level/InfoCard';
 import { LevelLadder } from '@/components/credit-level/LevelLadder';
-import { creditLevels } from '@/components/credit-level/levels.data';
 import { colors } from '@/theme/colors';
+import { layout } from '@/theme/layout';
 
 export default function P3() {
   return (
@@ -22,7 +22,7 @@ export default function P3() {
           description="Según tu reporte de deudas de la SBS"
         />
 
-        <LevelLadder title="Tu nivel Escalón" levels={creditLevels} />
+        <LevelLadder title="Tu nivel Escalón" />
 
         <Text style={styles.paragraph}>
           Todavía no tienes historial, y eso está bien. Vamos a construirlo juntos, a tu ritmo.
@@ -44,9 +44,7 @@ const styles = StyleSheet.create({
   scroll: {
     flex: 1,
   },
-  content: {
-    padding: 20,
-  },
+  content: layout.screenContent,
   step: {
     fontSize: 13,
     fontWeight: '700',
@@ -56,12 +54,12 @@ const styles = StyleSheet.create({
   heading: {
     fontSize: 24,
     fontWeight: '800',
-    color: '#111827',
+    color: colors.text,
     marginBottom: 16,
   },
   paragraph: {
     fontSize: 14,
-    color: '#111827',
+    color: colors.text,
     marginTop: 16,
     lineHeight: 20,
   },

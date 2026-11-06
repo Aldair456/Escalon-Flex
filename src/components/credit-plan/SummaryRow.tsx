@@ -1,5 +1,7 @@
 import { StyleSheet, Text, View } from 'react-native';
 
+import { colors } from '@/theme/colors';
+
 type SummaryRowProps = {
   label: string;
   value: string;
@@ -22,11 +24,11 @@ const styles = StyleSheet.create({
   },
   label: {
     fontSize: 14,
-    color: '#111827',
+    color: colors.text,
   },
   value: {
     fontSize: 14,
     fontWeight: '800',
-    color: '#111827',
+    color: colors.text,
   },
 });

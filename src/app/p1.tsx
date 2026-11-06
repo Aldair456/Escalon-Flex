@@ -1,12 +1,14 @@
 import { useState } from 'react';
-import { ScrollView, StyleSheet, Text, View } from 'react-native';
+import { Image, ScrollView, StyleSheet, Text, View } from 'react-native';
 
 import { BuildCreditHeader } from '@/components/credit-goal/BuildCreditHeader';
 import { ContinueButton } from '@/components/credit-goal/ContinueButton';
 import { GoalOptionCard } from '@/components/credit-goal/GoalOptionCard';
 import { creditGoalOptions, creditUsageOptions } from '@/components/credit-goal/goals.data';
+import { StepProgress } from '@/components/credit-goal/StepProgress';
 import { UsageChip } from '@/components/credit-goal/UsageChip';
 import { colors } from '@/theme/colors';
+import { layout } from '@/theme/layout';
 
 export default function P1() {
   const [selectedGoal, setSelectedGoal] = useState<string | null>(null);
@@ -23,7 +25,7 @@ export default function P1() {
       <BuildCreditHeader title="Construye crédito" />
 
       <ScrollView style={styles.scroll} contentContainerStyle={styles.content}>
-        <Text style={styles.step}>Paso 1 de 3</Text>
+        <StepProgress current={1} total={3} />
         <Text style={styles.heading}>¿Para qué quieres construir tu crédito?</Text>
 
         {creditGoalOptions.map((option) => (
@@ -48,6 +50,12 @@ export default function P1() {
             />
           ))}
         </View>
+
+        <Image
+          source={require('../../assets/illustrations/credit-goal-mascot-sitting.png')}
+          style={styles.mascot}
+          resizeMode="contain"
+        />
       </ScrollView>
 
       <ContinueButton label="Continuar" />
@@ -58,24 +66,16 @@ export default function P1() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: colors.white,
+    backgroundColor: colors.background,
   },
   scroll: {
     flex: 1,
   },
-  content: {
-    padding: 20,
-  },
-  step: {
-    fontSize: 13,
-    fontWeight: '700',
-    color: colors.primary,
-    marginBottom: 6,
-  },
+  content: layout.screenContent,
   heading: {
-    fontSize: 22,
+    fontSize: 24,
     fontWeight: '800',
-    color: '#111827',
+    color: colors.text,
     marginBottom: 16,
   },
   subheading: {
@@ -89,5 +89,11 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     flexWrap: 'wrap',
     gap: 10,
+  },
+  mascot: {
+    width: 240,
+    height: 232,
+    alignSelf: 'center',
+    marginTop: 24,
   },
 });

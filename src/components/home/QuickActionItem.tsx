@@ -2,6 +2,7 @@ import { router, type Href } from 'expo-router';
 import { Image, type ImageSourcePropType, Pressable, StyleSheet, Text, View } from 'react-native';
 
 import { colors } from '@/theme/colors';
+import { radii } from '@/theme/radii';
 
 type QuickActionItemProps = {
   label: string;
@@ -43,7 +44,7 @@ const styles = StyleSheet.create({
   iconWrapper: {
     width: 56,
     height: 56,
-    borderRadius: 16,
+    borderRadius: radii.card,
     backgroundColor: colors.white,
     overflow: 'hidden',
     marginBottom: 6,

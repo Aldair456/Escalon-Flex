@@ -17,7 +17,7 @@ export const quickActions: QuickAction[] = [
   {
     id: 'construye-credito',
     label: 'Construye crédito',
-    image: require('../../../assets/icons/quick-actions/construye-credito.png'),
+    image: require('../../../assets/illustrations/credit-steps.png'),
     badge: 'Nuevo',
   },
   { id: 'dolares', label: 'Dólares', image: require('../../../assets/icons/quick-actions/dolares.png') },

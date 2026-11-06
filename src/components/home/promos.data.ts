@@ -1,3 +1,5 @@
+import type { ImageSourcePropType } from 'react-native';
+
 export type Promo =
   | {
       id: string;
@@ -14,6 +16,11 @@ export type Promo =
       title: string;
       description: string;
       background: string;
+    }
+  | {
+      id: string;
+      variant: 'image';
+      image: ImageSourcePropType;
     };
 
 export const promos: Promo[] = [
@@ -27,11 +34,8 @@ export const promos: Promo[] = [
   },
   {
     id: 'gas',
-    variant: 'banner',
-    badge: 'Pedir Gas',
-    title: 'YAPEGAS',
-    description: '¡Usa el cupón y ahorra S/ 5!',
-    background: '#8B2FC9',
+    variant: 'image',
+    image: require('../../../assets/promos/pedir-gas.png'),
   },
   {
     id: 'cyber',
