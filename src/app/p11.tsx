@@ -1,4 +1,4 @@
-import { router } from 'expo-router';
+import { router, useLocalSearchParams } from 'expo-router';
 import { useMemo, useState } from 'react';
 import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 
@@ -11,12 +11,13 @@ import { SummaryRow } from '@/components/credit-plan/SummaryRow';
 import { colors } from '@/theme/colors';
 import { layout } from '@/theme/layout';
 
-const MIN_AMOUNT = 300;
-const MAX_AMOUNT = 2000;
+const MIN_AMOUNT = 100;
+const MAX_AMOUNT = 500;
 
 export default function P11() {
-  const [amount, setAmount] = useState(1000);
-  const [termId, setTermId] = useState('9');
+  const params = useLocalSearchParams<{ amount?: string; termId?: string }>();
+  const [amount, setAmount] = useState(Number(params.amount) || 300);
+  const [termId, setTermId] = useState(params.termId ?? '3');
 
   const term = loanTermOptions.find((option) => option.id === termId) ?? loanTermOptions[1];
 
@@ -33,11 +34,11 @@ export default function P11() {
 
   return (
     <View style={styles.container}>
-      <BuildCreditHeader title="Créditos" />
+      <BuildCreditHeader title="Simulador de crédito" />
 
       <ScrollView style={styles.scroll} contentContainerStyle={styles.content}>
-        <Text style={styles.eyebrow}>Tu préstamo preaprobado</Text>
-        <Text style={styles.heading}>¿Cuánto necesitas?</Text>
+        <Text style={styles.eyebrow}>Solo para que explores</Text>
+        <Text style={styles.heading}>¿Cuánto costaría un crédito así?</Text>
 
         <AmountSlider value={amount} min={MIN_AMOUNT} max={MAX_AMOUNT} onChange={setAmount} />
 
@@ -57,8 +58,8 @@ export default function P11() {
 
         <Text style={styles.sectionLabel}>Datos sobre el crédito</Text>
         <SummaryRow label="Monto de cuota" value={`S/ ${installment.toFixed(2)}`} highlight />
-        <SummaryRow label="TEA" value={term.tea} />
-        <SummaryRow label="TCEA" value={term.tcea} />
+        <SummaryRow label="Tasa mensual" value={term.tea} />
+        <SummaryRow label="TCEA anual" value={term.tcea} />
         <SummaryRow label="Intereses" value={`S/ ${interest.toFixed(2)}`} />
         <SummaryRow label="Monto total a pagar" value={`S/ ${total.toFixed(2)}`} />
         <SummaryRow label="Forma de pago" value="Cobro automático" />
@@ -70,12 +71,13 @@ export default function P11() {
         </Pressable>
 
         <Text style={styles.disclaimer}>
-          *Tasas ilustrativas para la demo. Sujeto a evaluación. Este préstamo sí se reporta a la SBS: aquí
-          empieza tu historial formal.
+          *Esto es una simulación educativa con tasas referenciales, no una oferta de crédito ni una
+          solicitud real. Te la mostramos para que compares el costo de un crédito con el de ahorrar por
+          tu cuenta.
         </Text>
       </ScrollView>
 
-      <ContinueButton label="Solicitar préstamo" />
+      <ContinueButton label="Entendido, es solo un simulador" />
     </View>
   );
 }

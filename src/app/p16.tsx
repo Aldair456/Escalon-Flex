@@ -29,7 +29,7 @@ export default function P16() {
         <View style={styles.noteWrapper}>
           <InfoNote
             lead="¿Cómo funciona?"
-            text="Pagas tus cuotas, el dinero se guarda, y al terminar lo recibes completo — así construyes historial sin asumir una deuda real."
+            text="BCP te presta el monto, pero queda bloqueado. Pagas tus cuotas puntualmente, eso sí se reporta a la SBS, y al terminar el dinero se libera completo para ti."
           />
         </View>
       </ScrollView>

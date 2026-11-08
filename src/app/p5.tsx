@@ -1,3 +1,4 @@
+import { router } from 'expo-router';
 import { ScrollView, StyleSheet, Text, View } from 'react-native';
 
 import { SuccessBadge } from '@/components/credit-confirmation/SuccessBadge';
@@ -5,37 +6,36 @@ import { StatsSummary } from '@/components/credit-confirmation/StatsSummary';
 import { BuildCreditHeader } from '@/components/credit-goal/BuildCreditHeader';
 import { ContinueButton } from '@/components/credit-goal/ContinueButton';
 import { MascotCallout } from '@/components/credit-plan/MascotCallout';
-import { planOptions, planSummary } from '@/components/credit-plan/plans.data';
+import { getSavingsPlan } from '@/state/savingsPlan';
 import { colors } from '@/theme/colors';
 import { layout } from '@/theme/layout';
 
 export default function P5() {
-  const selectedPlan = planOptions.find((plan) => plan.id === 'p150');
-  const installments = planSummary.find((row) => row.id === 'cuotas');
+  const plan = getSavingsPlan();
 
   return (
     <View style={styles.container}>
-      <BuildCreditHeader title="Construye crédito" />
+      <BuildCreditHeader title="Construye tu ahorro" />
 
       <ScrollView style={styles.scroll} contentContainerStyle={styles.content}>
         <SuccessBadge />
 
         <Text style={styles.heading}>¡Tu reto está listo!</Text>
-        <Text style={styles.subheading}>Ya comenzaste a construir tu historial crediticio.</Text>
+        <Text style={styles.subheading}>Ya comenzaste a construir tu historial de ahorro.</Text>
 
         <StatsSummary
-          amount={selectedPlan?.amount ?? 'S/ 150'}
-          installments={installments?.value ?? '6'}
+          amount={plan ? `S/ ${plan.aporteAmount}` : 'S/ 50'}
+          installments={plan ? String(plan.estimatedAportes) : '6'}
           level="Inicial"
         />
 
         <MascotCallout
           title="¡Genial!"
-          description="Estos montos y fechas pueden ajustarse según cómo uses tu Yape. Te avisamos si algo cambia."
+          description="Tú tienes el control: puedes cambiar el monto, la fecha o la frecuencia de tus aportes cuando quieras, sin penalidades."
         />
       </ScrollView>
 
-      <ContinueButton label="Ir a mi reto" />
+      <ContinueButton label="Ir a mi reto" onPress={() => router.push('/p7')} />
     </View>
   );
 }

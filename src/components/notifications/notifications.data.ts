@@ -20,7 +20,7 @@ export const notifications: NotificationEntry[] = [
     iconColor: colors.primary,
     iconBackground: '#F3EEFA',
     title: 'Recuerda pagar tu cuota',
-    description: 'Tu cuota de S/ 150 vence mañana, 05 de enero.',
+    description: 'Tu cuota de S/ 50 vence mañana, 05 de enero.',
     timestamp: '2h',
     unread: true,
   },

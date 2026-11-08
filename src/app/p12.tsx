@@ -1,4 +1,5 @@
 import { Ionicons } from '@expo/vector-icons';
+import { router } from 'expo-router';
 import { useState } from 'react';
 import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 
@@ -38,7 +39,7 @@ export default function P12() {
         <View style={styles.toggleCard}>
           <ToggleRow
             title="Usa tu ahorro como respaldo"
-            description="Reserva tus S/ 900 y sube tu línea"
+            description="Reserva tus S/ 300 y sube tu línea"
             value={useSavings}
             onValueChange={setUseSavings}
             showBorder={false}
@@ -48,7 +49,7 @@ export default function P12() {
 
       <ContinueButton label="Pedir mi tarjeta" />
 
-      <Pressable style={styles.conditionsLink}>
+      <Pressable style={styles.conditionsLink} onPress={() => router.push('/p18')}>
         <Text style={styles.conditionsText}>Ver condiciones</Text>
       </Pressable>
     </View>

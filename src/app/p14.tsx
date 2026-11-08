@@ -34,7 +34,7 @@ export default function P14() {
         </View>
       </ScrollView>
 
-      <ContinueButton label="Ver mi crédito" onPress={() => router.push('/p11')} />
+      <ContinueButton label="Ver mi crédito" onPress={() => router.push('/p30')} />
     </View>
   );
 }

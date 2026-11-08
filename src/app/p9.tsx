@@ -1,15 +1,20 @@
 import { router } from 'expo-router';
-import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { ScrollView, StyleSheet, Text, View } from 'react-native';
 
 import { ConfettiBackground } from '@/components/payment-receipt/ConfettiBackground';
 import { ReceiptTopBar } from '@/components/payment-receipt/ReceiptTopBar';
 import { ContinueButton } from '@/components/credit-goal/ContinueButton';
 import { InfoNote } from '@/components/credit-plan/InfoNote';
 import { SummaryRow } from '@/components/credit-plan/SummaryRow';
+import { getSavingsPlan } from '@/state/savingsPlan';
 import { colors } from '@/theme/colors';
 import { radii } from '@/theme/radii';
 
 export default function P9() {
+  const plan = getSavingsPlan();
+  const goalAmount = plan?.goalAmount ?? 300;
+  const totalAportes = plan?.estimatedAportes ?? 6;
+
   return (
     <View style={styles.container}>
       <ConfettiBackground />
@@ -21,31 +26,33 @@ export default function P9() {
           <Text style={styles.title}>¡Felicidades! Completaste tu reto</Text>
 
           <Text style={styles.paragraph}>
-            Tus <Text style={styles.bold}>S/ 900</Text> ya están en tu Yape. Pagaste{' '}
-            <Text style={styles.bold}>6 de 6 cuotas</Text> a tiempo.
+            Tus <Text style={styles.bold}>S/ {goalAmount}</Text> ya están en tu Yape. Hiciste{' '}
+            <Text style={styles.bold}>
+              {totalAportes} de {totalAportes} aportes
+            </Text>{' '}
+            a tiempo.
           </Text>
 
           <View style={styles.divider} />
 
           <Text style={styles.sectionLabel}>Tu resultado</Text>
-          <SummaryRow label="Nivel" value="Listo para tu crédito" highlight />
+          <SummaryRow label="Nivel" value="Hábito de ahorro consolidado" highlight />
           <SummaryRow label="Puntualidad" value="100%" />
-          <SummaryRow label="Ahorro devuelto" value="S/ 900.00" />
+          <SummaryRow label="Monto liberado" value={`S/ ${goalAmount}.00`} />
+          <SummaryRow label="Perfil de ahorro actualizado" value="Sí ✓" highlight />
+          <SummaryRow label="Bono por completar tu reto" value="+S/ 5" highlight />
+          <SummaryRow label="Vale de descuento" value="10% en Yape Promos" highlight />
 
-          <InfoNote text="Con esto, el BCP evaluó tu perfil y tiene algo para ti." />
+          <InfoNote text="Con tu autorización, estas señales podrían considerarse en una futura evaluación del BCP. La aprobación de crédito no está garantizada." />
         </View>
 
         <View style={styles.actions}>
-          <ContinueButton label="Ver mi préstamo preaprobado" onPress={() => router.push('/p11')} />
+          <ContinueButton label="Volver a Yape" onPress={() => router.push('/p24')} />
           <ContinueButton
-            label="Ver mi tarjeta preaprobada"
+            label="Ver mis cuotas completas"
             variant="secondary"
-            onPress={() => router.push('/p12')}
+            onPress={() => router.push('/p26')}
           />
-
-          <Pressable style={styles.textLink}>
-            <Text style={styles.textLinkLabel}>Ver caso: aún no califica</Text>
-          </Pressable>
         </View>
       </ScrollView>
     </View>
@@ -100,15 +107,5 @@ const styles = StyleSheet.create({
   },
   actions: {
     marginTop: 24,
-  },
-  textLink: {
-    alignItems: 'center',
-    marginTop: 4,
-  },
-  textLinkLabel: {
-    fontSize: 14,
-    fontWeight: '700',
-    color: colors.white,
-    textDecorationLine: 'underline',
   },
 });

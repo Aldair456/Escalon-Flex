@@ -1,4 +1,5 @@
-import { ScrollView, StyleSheet, Text, View } from 'react-native';
+import { router } from 'expo-router';
+import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { AnalysisStepRow } from '@/components/profile-analysis/AnalysisStepRow';
@@ -8,10 +9,14 @@ import { colors } from '@/theme/colors';
 
 export default function P13() {
   return (
-    <View style={styles.container}>
+    <Pressable style={styles.container} onPress={() => router.push('/p3')}>
       <SafeAreaView edges={['top']} style={styles.topBar} />
 
-      <ScrollView style={styles.scroll} contentContainerStyle={styles.content}>
+      <ScrollView
+        style={styles.scroll}
+        contentContainerStyle={styles.content}
+        scrollEnabled={false}
+        pointerEvents="none">
         <View style={styles.ringWrapper}>
           <AnalyzingRing progress={0.82} />
         </View>
@@ -25,7 +30,7 @@ export default function P13() {
           ))}
         </View>
       </ScrollView>
-    </View>
+    </Pressable>
   );
 }
 

@@ -15,28 +15,31 @@ export const faqEntries: FaqEntry[] = [
   {
     id: 'dinero',
     question: '¿Mi dinero es mío? ¿Puedo retirarlo?',
-    answer: 'Sí, es 100% tuyo y lo recibes completo al final. Si lo retiras antes, el reto se pausa.',
+    answer:
+      'Es un préstamo que te da BCP, no tu propio dinero. Queda bloqueado mientras pagas tus cuotas y se libera completo al terminar.',
     defaultOpen: true,
   },
   {
     id: 'historial',
     question: '¿Cómo se construye un historial crediticio?',
     answer:
-      'Pagando tus cuotas a tiempo. Cada pago puntual queda registrado y ayuda a construir tu reputación financiera.',
+      'Pagando tus cuotas a tiempo. Como es un préstamo real, cada pago puntual se reporta y construye tu historial crediticio formal.',
   },
   {
     id: 'sbs',
     question: '¿Esto aparece en la SBS?',
-    answer: 'No. Como es tu propio ahorro, no se reporta a centrales de riesgo. Es solo para practicar.',
+    answer: 'Sí. Es un préstamo real de BCP, así que tus pagos puntuales sí generan historial crediticio formal.',
   },
   {
     id: 'atraso',
     question: '¿Qué pasa si me atraso?',
-    answer: 'No pierdes tu dinero, pero tu nivel puede bajar y el reto se extiende un poco más.',
+    answer:
+      'Tienes 15 días de gracia sin penalidad. Si pasas los 30 días de atraso, eso sí se reporta a la SBS, igual que con cualquier préstamo real.',
   },
   {
     id: 'termino',
     question: '¿Qué pasa cuando termino?',
-    answer: 'Recibes todo tu ahorro de vuelta y quedas listo para postular a tu primer producto de crédito real.',
+    answer:
+      'El banco libera tu monto bloqueado y ya tienes historial crediticio real para postular a tu primer producto de crédito.',
   },
 ];

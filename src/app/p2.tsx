@@ -1,3 +1,4 @@
+import { router } from 'expo-router';
 import { useState } from 'react';
 import { ScrollView, StyleSheet, Text, View } from 'react-native';
 
@@ -42,7 +43,7 @@ export default function P2() {
         />
       </ScrollView>
 
-      <ContinueButton label="Acepto y continúo" />
+      <ContinueButton label="Acepto y continúo" onPress={() => router.push('/p18')} />
     </View>
   );
 }

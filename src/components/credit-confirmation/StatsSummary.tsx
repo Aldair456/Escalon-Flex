@@ -28,7 +28,7 @@ export function StatsSummary({ amount, installments, level }: StatsSummaryProps)
       <View style={styles.column}>
         <Ionicons name="calendar-outline" size={28} color={colors.primary} />
         <Text style={styles.value}>{installments}</Text>
-        <Text style={styles.label}>Cuotas</Text>
+        <Text style={styles.label}>Aportes</Text>
       </View>
 
       <View style={styles.divider} />

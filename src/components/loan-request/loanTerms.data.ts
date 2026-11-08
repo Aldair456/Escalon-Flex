@@ -9,7 +9,7 @@ export type LoanTermOption = {
 };
 
 export const loanTermOptions: LoanTermOption[] = [
-  { id: '6', months: 6, label: '6 meses', baseInstallment: 180.5, baseInterest: 83, tea: '45%', tcea: '49.2%' },
-  { id: '9', months: 9, label: '9 meses', baseInstallment: 129.3, baseInterest: 163.72, tea: '45%', tcea: '48.5%' },
-  { id: '12', months: 12, label: '12 meses', baseInstallment: 101.2, baseInterest: 214.4, tea: '45%', tcea: '47.9%' },
+  { id: '1', months: 1, label: '1 mes', baseInstallment: 1055, baseInterest: 55, tea: '5.5%', tcea: '89.6%' },
+  { id: '3', months: 3, label: '3 meses', baseInstallment: 382.33, baseInterest: 147, tea: '4.9%', tcea: '61.8%' },
+  { id: '6', months: 6, label: '6 meses', baseInstallment: 211.67, baseInterest: 270, tea: '4.5%', tcea: '55.0%' },
 ];

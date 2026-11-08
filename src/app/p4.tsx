@@ -13,11 +13,11 @@ import { colors } from '@/theme/colors';
 import { layout } from '@/theme/layout';
 
 export default function P4() {
-  const [selectedPlan, setSelectedPlan] = useState('p150');
+  const [selectedPlan, setSelectedPlan] = useState('p50');
 
   return (
     <View style={styles.container}>
-      <BuildCreditHeader title="Construye crédito" />
+      <BuildCreditHeader title="Construye tu ahorro" />
 
       <ScrollView style={styles.scroll} contentContainerStyle={styles.content}>
         <Text style={styles.heading}>Elige tu reto</Text>
@@ -47,7 +47,10 @@ export default function P4() {
           ))}
         </View>
 
-        <InfoNote lead="Es tu ahorro:" text="el dinero es 100% tuyo y lo recibes completo al final del reto." />
+        <InfoNote
+          lead="Es tu ahorro reservado:"
+          text="Apartas este monto con tu propio dinero. Se libera completo cuando termines de hacer todos tus aportes."
+        />
       </ScrollView>
 
       <ContinueButton label="Empezar mi reto" onPress={() => router.push('/p5')} />

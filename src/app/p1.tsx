@@ -1,3 +1,4 @@
+import { router } from 'expo-router';
 import { useState } from 'react';
 import { Image, ScrollView, StyleSheet, Text, View } from 'react-native';
 
@@ -22,11 +23,11 @@ export default function P1() {
 
   return (
     <View style={styles.container}>
-      <BuildCreditHeader title="Construye crédito" />
+      <BuildCreditHeader title="Construye tu ahorro" />
 
       <ScrollView style={styles.scroll} contentContainerStyle={styles.content}>
         <StepProgress current={1} total={3} />
-        <Text style={styles.heading}>¿Para qué quieres construir tu crédito?</Text>
+        <Text style={styles.heading}>¿Para qué quieres ahorrar?</Text>
 
         {creditGoalOptions.map((option) => (
           <GoalOptionCard
@@ -58,7 +59,7 @@ export default function P1() {
         />
       </ScrollView>
 
-      <ContinueButton label="Continuar" />
+      <ContinueButton label="Continuar" onPress={() => router.push('/p2')} />
     </View>
   );
 }

@@ -1,27 +1,35 @@
-import { ScrollView, StyleSheet, Text, View } from 'react-native';
+import { router } from 'expo-router';
+import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 
 import { BuildCreditHeader } from '@/components/credit-goal/BuildCreditHeader';
 import { FaqItem } from '@/components/progress-overview/FaqItem';
 import { faqEntries } from '@/components/progress-overview/faq.data';
 import { ProgressOverviewCard } from '@/components/progress-overview/ProgressOverviewCard';
 import { StreakCard } from '@/components/progress-overview/StreakCard';
+import { getSavingsProgress } from '@/state/savingsPlan';
 import { colors } from '@/theme/colors';
 
 export default function P8() {
+  const progress = getSavingsProgress();
+
   return (
     <View style={styles.container}>
       <BuildCreditHeader title="Mi avance" />
 
       <ScrollView style={styles.scroll} contentContainerStyle={styles.content}>
         <ProgressOverviewCard
-          progress={0.5}
-          completed={3}
-          total={6}
-          levelLabel="En construcción"
-          savedAmount="S/ 450"
+          progress={progress.paidCount / progress.totalAportes}
+          completed={progress.paidCount}
+          total={progress.totalAportes}
+          levelLabel={progress.levelLabel}
+          savedAmount={`S/ ${progress.paidAmount}`}
         />
 
-        <StreakCard streak={3} nextDueDate="05 de enero" />
+        <Pressable style={styles.editPlanLink} onPress={() => router.push('/p27')}>
+          <Text style={styles.editPlanLinkText}>Editar mi plan de ahorro</Text>
+        </Pressable>
+
+        <StreakCard streak={progress.paidCount} nextDueDate={progress.nextInstallment?.date} />
 
         <View style={styles.faqSection}>
           <Text style={styles.faqTitle}>Preguntas frecuentes</Text>
@@ -50,6 +58,17 @@ const styles = StyleSheet.create({
   },
   content: {
     paddingBottom: 20,
+  },
+  editPlanLink: {
+    alignItems: 'center',
+    marginHorizontal: 20,
+    marginBottom: 20,
+  },
+  editPlanLinkText: {
+    fontSize: 14,
+    fontWeight: '700',
+    color: colors.primary,
+    textDecorationLine: 'underline',
   },
   faqSection: {
     paddingHorizontal: 20,
