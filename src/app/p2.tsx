@@ -20,7 +20,7 @@ export default function P2() {
 
   return (
     <View style={styles.container}>
-      <ConsentHeader title="Tú decides qué compartir" step="Paso 2 de 3" />
+      <ConsentHeader title="Tú decides qué compartir" />
 
       <ScrollView style={styles.scroll} contentContainerStyle={styles.content}>
         <LawNoticeCard badge="Ley N° 29733">

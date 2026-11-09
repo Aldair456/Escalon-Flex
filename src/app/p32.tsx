@@ -38,7 +38,6 @@ export default function P32() {
           <View style={styles.amountBox}>
             <Text style={styles.amountLabel}>Así sería tu microcrédito</Text>
             <Text style={styles.amountValue}>S/ {amount}</Text>
-            <Ionicons name="sparkles" size={18} color={colors.badge} style={styles.amountSparkle} />
           </View>
 
           <View style={styles.divider} />
@@ -158,11 +157,6 @@ const styles = StyleSheet.create({
     fontSize: 34,
     fontWeight: '800',
     color: colors.primary,
-  },
-  amountSparkle: {
-    position: 'absolute',
-    top: 10,
-    right: 20,
   },
   divider: {
     height: 1,

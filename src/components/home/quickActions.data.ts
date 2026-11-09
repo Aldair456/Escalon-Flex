@@ -17,7 +17,7 @@ export const quickActions: QuickAction[] = [
     id: 'creditos',
     label: 'Créditos',
     image: require('../../../assets/icons/quick-actions/creditos.png'),
-    route: '/p21',
+    route: '/p0',
   },
   {
     id: 'construye-credito',

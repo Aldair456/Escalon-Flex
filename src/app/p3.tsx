@@ -14,7 +14,6 @@ export default function P3() {
       <BuildCreditHeader title="Construye tu ahorro" />
 
       <ScrollView style={styles.scroll} contentContainerStyle={styles.content}>
-        <Text style={styles.step}>Paso 3 de 3</Text>
         <Text style={styles.heading}>Así empiezas</Text>
 
         <InfoCard
